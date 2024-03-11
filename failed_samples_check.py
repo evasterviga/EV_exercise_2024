@@ -1,6 +1,8 @@
 import pandas as pd
+from mails import end_mail
 
-# TODO: find file ecah time is generated 
+# TODO: find file each time is generated 
+# TODO: add input path to config, look for files there
 samples = pd.read_csv(r'data/samples.txt')
 
 origins = set(''.join([x[1:2] for x in samples['sample']]))
@@ -25,3 +27,4 @@ elif len(results.pct_fail_pass[results.pct_fail_pass == True]) == 0:
 print(mail_subject)
 print(mail_text)
 
+end_mail(mail_subject, mail_text)
